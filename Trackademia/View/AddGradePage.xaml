@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trackademia_PDC50.View.AddGradePage"
+             BackgroundColor="#E8F5E9">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
+            <HorizontalStackLayout
+                    Padding="35,20"
+                    Spacing="0"
+                    BackgroundColor="#378b4e">
+                <Label Text="Add New Grade" 
+                       FontAttributes="Bold"
+                       TextColor="#F5F5F5" 
+                       FontSize="23"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout Padding="450, 0" Spacing="10">
+                <Label Text="Subject" FontAttributes="Bold" TextColor="#202120"/>
+                <Entry Text="{Binding Subject}" Placeholder="Enter subject" TextColor="#202120"/>
+
+                <Label Text="Quarter" FontAttributes="Bold" TextColor="#202120"/>
+                <Picker SelectedItem="{Binding Quarter}" TextColor="#202120">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1st Quarter</x:String>
+                            <x:String>2nd Quarter</x:String>
+                            <x:String>3rd Quarter</x:String>
+                            <x:String>4th Quarter</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Text="Score" FontAttributes="Bold" TextColor="#202120"/>
+                <Entry Text="{Binding Score}" Keyboard="Numeric" Placeholder="Enter score" TextColor="#202120"/>
+
+                <Label Text="School Year" FontAttributes="Bold" TextColor="#202120"/>
+                <Entry Text="{Binding SchoolYear}" Placeholder="Enter school year" TextColor="#202120"/>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Button Text="Save"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="#378b4e"
+                        TextColor="#F5F5F5"
+                        WidthRequest="100"/>
+
+                    <Button Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="#E5E1DA"
+                        TextColor="#202120"
+                        WidthRequest="100"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

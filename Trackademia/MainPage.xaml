@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trackademia_PDC50.MainPage"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25">
+
+            <HorizontalStackLayout
+                Padding="525,-45"
+                Spacing="-525"
+                BackgroundColor="#378b4e">
+                <Image
+                    Source="https://i.imgur.com/7not7UD.png"
+                    HeightRequest="120"
+                    Aspect="AspectFit" />
+                <VerticalStackLayout
+                    Padding="525,100"
+                    Spacing="0">
+                    <Label
+                        Text="Trackademia"
+                        TextColor="#202120"
+                        FontAttributes="Bold"
+                        FontFamily=""
+                        FontSize="30"/>
+
+                    <Label
+                        Text="STUDENTS RECORDS APP"
+                        TextColor="#202120"
+                        FontSize="10"
+                        Padding="20,0"
+                        CharacterSpacing="1"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <Label
+                Text="Welcome!"
+                TextColor="#202120"
+                FontFamily=""
+                FontSize="30"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"/>
+
+            <VerticalStackLayout VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="CenterAndExpand" 
+                     Spacing="5">
+                <Label 
+        Text="💡 Trackademia Features:" 
+        FontSize="15" 
+        TextColor="#202120"/>
+                <Label 
+        Text="• Create new student profiles." 
+        FontSize="13" 
+        TextColor="#202120"/>
+                <Label 
+        Text="• View all student records in one place." 
+        FontSize="13" 
+        TextColor="#202120"/>
+                <Label 
+        Text="• Update existing student information." 
+        FontSize="13" 
+        TextColor="#202120"/>
+                <Label 
+        Text="• Delete outdated records securely." 
+        FontSize="13" 
+        TextColor="#202120"/>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout
+                Padding="10,0"
+                Spacing="20">
+
+                <Label x:Name="ConnectionStatus"
+                        Text=""
+                        FontSize="18"
+                        TextColor="#D32F2F"
+                        HorizontalOptions="Center" />
+
+                <Button
+                        x:Name="TestDbBtn"
+                        Text="Test Database Connection"
+                        SemanticProperties.Hint="Tests the connection to the database"
+                        Clicked="OnTestDbConnection"
+                        BackgroundColor="#37688b"
+                        TextColor="White"
+                        HorizontalOptions="Fill" />
+
+                <Button Text="User"
+                        TextColor="#F5F5F5"
+                        Clicked="ClickedViewUser"
+                        HorizontalOptions="Fill"
+                        BackgroundColor="#378b4e" />
+
+                <Button Text="Student"
+                        TextColor="#F5F5F5"
+                        Clicked="ClickedViewStudent"
+                        HorizontalOptions="Fill"
+                        BackgroundColor="#378b4e" />
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trackademia_PDC50.View.UserPage"
+             BackgroundColor="#E8F5E9">
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="5">
+
+            <Button Text="Load Users" 
+                    Command="{Binding LoadUserCommand}" 
+                    BackgroundColor="#378b4e"
+                    TextColor="#F5F5F5"/>
+
+            <ListView ItemsSource="{Binding Users}" 
+                      SelectedItem="{Binding SelectedUser}" 
+                      HeightRequest="300" 
+                      SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Label Text="{Binding Name}" 
+                                       FontAttributes="Bold" 
+                                       VerticalOptions="Center"
+                                       TextColor="#202120"/>
+                                <Label Text=" | " VerticalOptions="Center"/>
+                                <Label Text="{Binding Gender}" VerticalOptions="Center"
+                                       TextColor="#202120"/>
+                                <Label Text=" | " VerticalOptions="Center"/>
+                                <Label Text="{Binding ContactNo}" VerticalOptions="Center"
+                                       TextColor="#202120"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Name" FontAttributes="Bold" TextColor="#1F1F1F"/>
+            <Entry Placeholder="Enter Name" Text="{Binding NameInput}" TextColor="#1F1F1F" />
+
+            <Label Text="Gender" FontAttributes="Bold" TextColor="#1F1F1F"/>
+            <Entry Placeholder="Enter Gender" Text="{Binding GenderInput}" TextColor="#1F1F1F" />
+
+            <Label Text="Contact No" FontAttributes="Bold" TextColor="#1F1F1F"/>
+            <Entry Placeholder="Enter Contact No" Text="{Binding ContactNoInput}" TextColor="#1F1F1F" />
+            <HorizontalStackLayout HorizontalOptions="End" Padding="20, 0" Spacing="10">
+                <Button Text="Add User"  
+                    Command="{Binding AddUserCommand}" 
+                    BackgroundColor="#378b4e"
+                    TextColor="#F5F5F5"/>
+
+                <Button Text="Delete User" 
+                    Command="{Binding DeleteUserCommand}" 
+                    BackgroundColor="#378b4e"
+                    TextColor="#F5F5F5"/>
+
+                <Button Text="Update User" 
+                    Command="{Binding UpdateUserCommand}" 
+                    BackgroundColor="#378b4e"
+                    TextColor="#F5F5F5"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

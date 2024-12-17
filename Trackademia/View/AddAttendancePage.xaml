@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trackademia_PDC50.View.AddAttendancePage"
+             BackgroundColor="#E8F5E9">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
+            <HorizontalStackLayout
+                    Padding="35,20"
+                    Spacing="0"
+                    BackgroundColor="#378b4e">
+                <Label Text="Add Attendance" 
+                       FontAttributes="Bold"
+                       TextColor="#F5F5F5" 
+                       FontSize="23"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout Padding="450, 0" Spacing="10">
+                <Label Text="Date:" FontAttributes="Bold" TextColor="#202120"/>
+                <DatePicker Date="{Binding Date}"
+                        Format="MM/dd/yyyy"
+                        TextColor="#202120"/>
+                <Label Text="Status:" FontAttributes="Bold" TextColor="#202120"/>
+                <Picker
+                    SelectedItem="{Binding Status}"
+                    TextColor="#202120">
+                    <Picker.Items>
+                        <x:String>Select Status</x:String>
+                        <x:String>Present</x:String>
+                        <x:String>Absent</x:String>
+                        <x:String>Late</x:String>
+                        <x:String>Excused</x:String>
+                    </Picker.Items>
+                </Picker>
+                
+                <Label Text="Remarks:" FontAttributes="Bold" TextColor="#202120"/>
+                <Entry Placeholder="Enter Remarks"
+                   Text="{Binding Remarks}"
+                   HeightRequest="100"
+                   TextColor="#202120"/>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Button Text="Save"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="#378b4e"
+                        TextColor="#F5F5F5"
+                        WidthRequest="100"/>
+
+                    <Button Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="#E5E1DA"
+                        TextColor="#202120"
+                        WidthRequest="100"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

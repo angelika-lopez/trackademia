@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Trackademia_PDC50.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Trackademia_PDC50"
+    xmlns:views ="clr-namespace:Trackademia_PDC50.View"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Trackademia_PDC50">
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate views:UserPage}"
+        Route="UserPage" />
+
+	<ShellContent
+        ContentTemplate="{DataTemplate views:StudentListPage}"
+        Route="StudentListPage" />
+
+</Shell>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trackademia_PDC50.View.StudentDetailsPage"
+             BackgroundColor="#E8F5E9">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10">
+            <!-- Personal Information Section -->
+            <VerticalStackLayout 
+                Padding="0, 0, 0, 0"
+                Spacing="15">
+                <HorizontalStackLayout
+                                Padding="35,20"
+                                Spacing="0"
+                                BackgroundColor="#378b4e">
+                    <Label Text="Personal Information" 
+                                FontAttributes="Bold"
+                                TextColor="#F5F5F5" 
+                                FontSize="23"/>
+                </HorizontalStackLayout>
+                <VerticalStackLayout 
+                    Padding="20, 0, 0, 0"
+                    Spacing="15"
+                    BackgroundColor="#E8F5E9">
+                    <Grid RowSpacing="15" ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Student ID:" 
+                               Grid.Row="0" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        <Label Text="{Binding Student.StudentID}" 
+                               Grid.Row="0" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Full Name:" 
+                               Grid.Row="1" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        
+                        <Label Text="{Binding Student.FullName}" 
+                               Grid.Row="1" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Grade/Class:" 
+                               Grid.Row="2" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        
+                        <Label Text="{Binding Student.GradeClass}" 
+                               Grid.Row="2" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Date of Birth:" 
+                               Grid.Row="3" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        
+                        <Label Text="{Binding Student.DateOfBirth}" 
+                               Grid.Row="3" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Gender:" 
+                               Grid.Row="4" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        
+                        <Label Text="{Binding Student.Gender}" 
+                               Grid.Row="4" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Contact No:" 
+                               Grid.Row="5" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        
+                        <Label Text="{Binding Student.ContactNo}" 
+                               Grid.Row="5" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Email:" 
+                               Grid.Row="6" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        <Label Text="{Binding Student.Email}" 
+                               Grid.Row="6" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Address:" 
+                               Grid.Row="7" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        <Label Text="{Binding Student.Address}" 
+                               Grid.Row="7" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Emergency Contact:" 
+                               Grid.Row="8" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        <Label Text="{Binding Student.EmergencyContact}" 
+                               Grid.Row="8" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+
+                        <Label Text="Status:" 
+                               Grid.Row="9" Grid.Column="0" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        <Label Text="{Binding Student.Status}" 
+                               Grid.Row="9" Grid.Column="1"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Academic Information Section -->
+            <VerticalStackLayout Spacing="15">
+                <HorizontalStackLayout
+                Padding="35,20"
+                Spacing="0"
+                BackgroundColor="#378b4e">
+                    <Label Text="Academic Information" 
+                           FontAttributes="Bold"
+                           TextColor="#F5F5F5" 
+                           FontSize="23"/>
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout 
+                            Padding="20, 0, 0, 0"
+                            Spacing="15">
+                    <HorizontalStackLayout Spacing="5" HorizontalOptions="Start">
+                        <Label Text="GPA:" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="#378b4e"/>
+                        <Label Text="{Binding GPA}" 
+                               FontSize="18"
+                               VerticalOptions="Center"
+                               TextColor="#202120"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Binding GradeSummary}" 
+                           FontSize="16"
+                           HorizontalOptions="Start"
+                           TextColor="#202120"/>
+
+                    <!-- Sort and Filter Controls -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,10,0,10">
+                        <HorizontalStackLayout Grid.Column="0" Spacing="10">
+                            <Label Text="Sort by:" 
+                                   VerticalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="#378b4e"/>  
+                            <Picker SelectedItem="{Binding SortBy}"
+                                    WidthRequest="120"
+                                    TextColor="#202120">
+                                <Picker.Items>
+                                    <x:String>Score</x:String>
+                                    <x:String>Quarter</x:String>
+                                    <x:String>Subject</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                            <Label Text="Filter by:" 
+                                   VerticalOptions="Center"
+                                   FontAttributes="Bold"
+                                   TextColor="#378b4e"/>
+                            <Picker SelectedItem="{Binding FilterBy}"
+                                    WidthRequest="120"
+                                    TextColor="#202120">
+                                <Picker.Items>
+                                    <x:String>Quarter</x:String>
+                                    <x:String>Subject</x:String>
+                                </Picker.Items>
+                            </Picker>
+                            <Entry Placeholder="Enter value"
+                                   Text="{Binding FilterValue}"
+                                   WidthRequest="120"
+                                   TextColor="#202120"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="300,270,270,100,Auto,Auto" 
+                          Padding="5"
+                          ColumnSpacing="10">
+                        <Label Text="Subject" Grid.Column="0" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                        <Label Text="Quarter" Grid.Column="1" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                        <Label Text="Score" Grid.Column="2" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                        <Label Text="School Year" Grid.Column="3" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                    </Grid>
+                    <VerticalStackLayout >
+                        <CollectionView ItemsSource="{Binding StudentGrades}"
+                        HeightRequest="200"
+                        Margin="10,0,10,0">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="300,270,270,100,Auto,Auto"
+                                      Padding="5"
+                                      ColumnSpacing="10">
+                                        <Label Text="{Binding Subject}" 
+                                           Grid.Column="0"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           TextColor="#202120"/>
+                                        <Label Text="{Binding Quarter}" 
+                                           Grid.Column="1"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           TextColor="#202120"/>
+                                        <Label Text="{Binding Score}" 
+                                           Grid.Column="2"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           TextColor="#202120"/>
+                                        <Label Text="{Binding SchoolYear}" 
+                                           Grid.Column="3"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           TextColor="#202120"/>
+                                        <Button Text="Edit"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditGradeCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="#378b4e"
+                                            TextColor="#F5F5F5"
+                                            FontSize="11"
+                                            WidthRequest="70"
+                                            HeightRequest="30"
+                                            CornerRadius="5"
+                                            Grid.Column="4"/>
+                                        <Button Text="Delete"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteGradeCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="#E5E1DA"
+                                            TextColor="#202120"
+                                            FontSize="11"
+                                            WidthRequest="70"
+                                            HeightRequest="30"
+                                            CornerRadius="5"
+                                            Grid.Column="5"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Button Text="Add Grade"
+                            Command="{Binding AddGradeCommand}"
+                            BackgroundColor="#378b4e"
+                            TextColor="#F5F5F5"
+                            FontSize="14"
+                            WidthRequest="150"
+                            HeightRequest="40"
+                            CornerRadius="10"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Attendance Section -->
+            <HorizontalStackLayout
+                        Padding="35,20"
+                        Spacing="0"
+                        BackgroundColor="#378b4e">
+                    <Label Text="Attendance Record" 
+                           FontAttributes="Bold"
+                           TextColor="#F5F5F5" 
+                           FontSize="23"/>
+                </HorizontalStackLayout>
+
+            <VerticalStackLayout Padding="20, 10" Spacing="15">
+                <!-- Date Range Filter -->
+                    <VerticalStackLayout Grid.Column="0" Spacing="10">
+                    <Label Text="Date Range:" FontAttributes="Bold" TextColor="#378b4e"/>
+                        <HorizontalStackLayout Spacing="10">
+                            <DatePicker Date="{Binding StartDate}"
+                                            Format="MM/dd/yyyy"
+                                            WidthRequest="140"
+                                            TextColor="#202120"/>
+                            <Label Text="to" VerticalOptions="Center" TextColor="#202120"/>
+                            <DatePicker Date="{Binding EndDate}"
+                                            Format="MM/dd/yyyy"
+                                            WidthRequest="140"
+                                            TextColor="#202120"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                    <!-- Attendance Statistics -->
+                <Label Text="{Binding AttendanceStats}"
+                               FontSize="14"
+                               TextColor="#202120"/>
+
+                <!-- Attendance List Header -->
+                <Grid ColumnDefinitions="*,*,*,Auto" 
+              Padding="5"
+              ColumnSpacing="10">
+                    <Label Text="Date" Grid.Column="0" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                    <Label Text="Status" Grid.Column="1" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                    <Label Text="Remarks" Grid.Column="2" FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="#378b4e"/>
+                </Grid>
+                <StackLayout>
+                    <CollectionView ItemsSource="{Binding StudentAttendance}"
+                            HeightRequest="200"
+                            Margin="10,0,10,0">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="430,450,250,Auto,Auto"
+                              Padding="5"
+                              ColumnSpacing="10">
+                                    <Label Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}" 
+                                   Grid.Column="0"
+                                   HorizontalOptions="Start"
+                                   TextColor="#202120"/>
+                                    <Label Text="{Binding Status}"
+                                   TextColor="#202120"
+                                   Grid.Column="1"
+                                   HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Remarks}" 
+                                   Grid.Column="2"
+                                   HorizontalOptions="Start"
+                                   TextColor="#202120"/>
+                                    <Button Text="Edit"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditAttendanceCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#378b4e"
+                                    TextColor="#F5F5F5"
+                                    FontSize="11"
+                                    WidthRequest="70"
+                                    HeightRequest="30"
+                                    CornerRadius="5"
+                                    Grid.Column="3"/>
+                                    <Button Text="Delete"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteAttendanceCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#E5E1DA"
+                                    TextColor="#202120"
+                                    FontSize="11"
+                                    WidthRequest="70"
+                                    HeightRequest="30"
+                                    CornerRadius="5"
+                                    Grid.Column="4"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                    <Button Text="Add Attendance"
+                        Command="{Binding AddAttendanceCommand}"
+                        BackgroundColor="#378b4e"
+                        TextColor="#F5F5F5"
+                        FontSize="14"
+                        HeightRequest="40"
+                        CornerRadius="10"/>
+
+                    <Button Text="Back to List"
+                        Command="{Binding GoBackCommand}"
+                        BackgroundColor="#378b4e"
+                        TextColor="#F5F5F5"
+                        HeightRequest="40"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

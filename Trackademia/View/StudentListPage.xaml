@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trackademia_PDC50.View.StudentListPage"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
+
+            <HorizontalStackLayout
+                Padding="35,20"
+                Spacing="0"
+                BackgroundColor="#378b4e">
+            <Label Text="Personal Information" 
+                FontAttributes="Bold"
+                TextColor="#F5F5F5" 
+                FontSize="23"/>
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="#388E3C"
+                   Margin="0,0,0,10"
+                   FontSize="14"
+                   HorizontalOptions="Center"/>
+
+            <Button Text="Load Students" 
+                    Command="{Binding LoadStudentsCommand}"
+                    BackgroundColor="#388E3C"
+                    TextColor="#F5F5F5"
+                    Margin="0,0,0,10"/>
+
+            <!-- Student List -->
+            <ListView ItemsSource="{Binding Students}" 
+                         SelectedItem="{Binding SelectedStudent}"
+                         HeightRequest="300"
+                         SeparatorVisibility="Default"
+                         BackgroundColor="#E8F5E9">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout 
+                                Padding="325, 15, 0, 0"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center">
+                                <Frame
+                                   Padding="15, 15, 15, 15"
+                                   BackgroundColor="#FFFFFF" 
+                                   CornerRadius="10" 
+                                   HasShadow="True"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center">
+                                    <HorizontalStackLayout 
+                                        Padding="10, 0" 
+                                        Spacing="40">
+                                        <StackLayout 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            Orientation="Vertical" 
+                                            Padding="10, 0, 10, 0">
+                                            <Label Text="{Binding StudentID}" 
+                                                   FontAttributes="Bold"
+                                                   FontSize="20"
+                                                   TextColor="#388E3C"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Text="{Binding GradeClass}"
+                                                   FontSize="13"
+                                                   TextColor="#2E7D32"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                        </StackLayout>
+
+                                        <StackLayout 
+                                            Orientation="Vertical" 
+                                            Padding="10, 0, 10, 0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center">
+                                            <Label Text="{Binding FullName}" 
+                                                   FontSize="13"
+                                                   TextColor="#2E7D32"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Text="{Binding ContactNo}"
+                                                   FontSize="13"
+                                                   TextColor="#2E7D32"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"/>
+                                        </StackLayout>
+                                        <StackLayout 
+                                            Orientation="Vertical" 
+                                            Padding="10, 0, 10, 0" 
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center">
+                                            <Button
+                                                Text="View Details"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ViewDetailsCommand}"
+                                                CommandParameter="{Binding .}"
+                                                BackgroundColor="#2E7D32"
+                                                TextColor="#F5F5F5"
+                                                FontSize="11"/>
+                                        </StackLayout>
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Add Student Form -->
+            <HorizontalStackLayout
+                   Padding="35,20"
+                   Spacing="0"
+                   BackgroundColor="#378b4e">
+                <Label Text="New Student" 
+                       FontAttributes="Bold"
+                       TextColor="#F5F5F5" 
+                       FontSize="23"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout BackgroundColor="#E8F5E9" Padding="35,10" Spacing="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <VerticalStackLayout Grid.Column="0" Spacing="5">
+                        <Label Text="Student ID" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Student ID" Text="{Binding StudentIdInput}" TextColor="#388E3C" />
+
+                        <Label Text="Full Name" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Full Name" Text="{Binding FullNameInput}" TextColor="#388E3C" />
+
+                        <Label Text="Grade/Class" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Grade/Class" Text="{Binding GradeClassInput}" TextColor="#388E3C" />
+
+                        <Label Text="Contact No" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Contact No" Text="{Binding ContactNoInput}" TextColor="#388E3C" />
+
+                        <Label Text="Date of Birth" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <DatePicker Date="{Binding DateOfBirthInput}" 
+                            Format="yyyy-MM-dd"
+                            TextColor="#1F1F1F"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="5">
+                        <StackLayout>
+                            <Label Text="Gender" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                            <Picker SelectedItem="{Binding GenderInput}"
+                                    TextColor="#1F1F1F"
+                                    SelectedIndex="0">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Select your Gender</x:String>
+                                        <x:String>Male</x:String>
+                                        <x:String>Female</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </StackLayout>
+
+                        <Label Text="Address" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Address" Text="{Binding AddressInput}" TextColor="#1F1F1F" />
+
+                        <Label Text="Email" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Email" Text="{Binding EmailInput}" TextColor="#1F1F1F" />
+
+                        <Label Text="Emergency Contact" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <Entry Placeholder="Enter Emergency Contact" Text="{Binding EmergencyContactInput}" TextColor="#1F1F1F" />
+
+                        <Label Text="Status" FontAttributes="Bold" TextColor="#1F1F1F"/>
+                        <StackLayout>
+                            <Picker SelectedItem="{Binding StatusInput}"
+                                    TextColor="#1F1F1F"
+                                    SelectedIndex="0">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Select your Status</x:String>
+                                        <x:String>Active</x:String>
+                                        <x:String>Inactive</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </StackLayout>
+                    </VerticalStackLayout>
+                </Grid>
+                <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                    <Button Text="Add Student" 
+                            Command="{Binding AddStudentCommand}"
+                            BackgroundColor="#388E3C"
+                            TextColor="#F5F5F5"
+                            Margin="0,0,0,10"/>
+
+                    <Button Text="Update Student" 
+                        Command="{Binding UpdateStudentCommand}"
+                        BackgroundColor="#388E3C"
+                        TextColor="#F5F5F5"
+                        Margin="0,0,0,10"/>
+
+                    <Button Text="Delete Student" 
+                        Command="{Binding DeleteStudentCommand}"
+                        BackgroundColor="#388E3C"
+                        TextColor="#F5F5F5"
+                        Margin="0,0,0,10"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
